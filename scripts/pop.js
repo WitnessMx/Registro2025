@@ -28,7 +28,7 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
                 
             }
             let id_cam=document.getElementById('id_camara');
-            id_cam.innerHTML=camaraLabel;
+            id_cam.innerHTML=devices.length +"<>" + camaraLabel;
             console.log(devices);
             // .. use this to start scanning.
               //  const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
