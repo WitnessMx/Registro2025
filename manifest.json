@@ -1,0 +1,16 @@
+{
+  "name": "Registro de Ubicaciones 2025",
+  "short_name": "Ubicaciones2025",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#b5fff3",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/registro2025/styles/imagenes/registro.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

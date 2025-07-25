@@ -1,0 +1,320 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ubicaciones</title>
+    <link rel="manifest" href="manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/styles/imagenes/registro.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+    <meta name="theme-color" content="#db4938" />
+    <link rel="canonical" href="https://witnessmx.github.io/registro2025/" />
+    <!----PARA EL MAPA----->
+    
+    <link rel="stylesheet" href="scripts/leaflet/leaflet.css"/>
+    <link rel="stylesheet" href="styles/style_calibracion2023.css">
+    <link rel="stylesheet" href="styles/popups.css">
+
+    
+    <script src="scripts/leaflet/leaflet.js"></script>
+    <script src="scripts/search/leaflet-search.js"></script>
+    <link rel="stylesheet" href="scripts/search/leaflet-search.css">
+    <link rel="stylesheet" href="styles/map.css">
+
+    <script src="scripts/html5-qrcode.min.js"></script>
+   
+    
+</head>
+
+<body>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <span class="close" id="closePopup">&times;</span>
+            <div class="popup-content">
+                <div id="qr-reader" style="width:500px"></div>
+                <div id="qr-reader-results"></div>
+            </div>
+
+        </div>
+    </div>
+<form action="" name="enviar_form">
+    <div class="contenedor_2025">
+        <div class="divBuscar" id="findbox"></div>
+        <div class="mapa_2025" id="mapa_2025"></div>
+        <div class="divTitulo"><div>Ubicacion</div>
+            <div class="info">
+                <div class="divLabel">X<br><input class="inputInfo" type="number" id="cord_x" name="cord_x" readonly></div>
+                <div class="divLabel">Y<br><input class="inputInfo" type="number" id="cord_y" name="cord_y" readonly></div>
+            </div>
+        </div>
+        <div class="divTitulo"><div><input type="button" value="" id="qr-boton">  Descripcion de Instrumento</div>
+            <div class="info">
+                <div class="divLabel">ID Gage<br><input class="inputInfo" type="text" id="id_gage" name="id_gage" style="max-width: 210px;" required></div>
+                <div class="divLabel">Descripción<br><input class="inputInfo" type="text" id="descripcion" name="descripcion" required></div>
+                
+            </div>
+            <div class="info">
+                <div class="divLabel"  style="display: inline-block;width: 100%;">Localización<br><input class="inputInfo" type="text" id="localizacion" name="localizacion" required></div>
+            </div>
+            <div class="info">
+                <div class="divLabel" style="display: inline-block;width: 100%;">Tipo<br>
+                    <select class="InputInfo"  name="tipo" id="tipo" style="font-size: 23px;" required>
+                                            <option value="">...</option>
+                                            <option value= "1.01 - Final Gage (Checking Fixture)">1.01 - Final Gage (Checking Fixture)</option>
+                                            <option value= "2.01 - Gage GO - NO GO">2.01 - Gage GO - NO GO</option>
+                                            <option value= "3.01 - Vernier / Caliper">3.01 - Vernier / Caliper</option>
+                                            <option value= "3.02 - Escala / Scale">3.02 - Escala / Scale</option>
+                                            <option value= "3.03 - Flexometro / Tape measure">3.03 - Flexometro / Tape measure</option>
+                                            <option value= "3.04 - Micrometro / Micrometer">3.04 - Micrometro / Micrometer</option>
+                                            <option value= "3.05 - Regla de vidrio / Glass calibration scale">3.05 - Regla de vidrio / Glass calibration scale</option>
+                                            <option value= "3.06 - Bloques patron / Gage blocks">3.06 - Bloques patron / Gage blocks</option>
+                                            <option value= "3.07 - Masa patron / Standard weight">3.07 - Masa patron / Standard weight</option>
+                                            <option value= "3.08 - Tacometro digital / Digital tachometer">3.08 - Tacometro digital / Digital tachometer</option>
+                                            <option value= "3.09 - Termohigrometro / Termo-higrometer">3.09 - Termohigrometro / Termo-higrometer</option>
+                                            <option value= "3.10 - Manometro digital / Digital manometer">3.10 - Manometro digital / Digital manometer</option>
+                                            <option value= "3.11 - Termometro / Calibrator thermometer">3.11 - Termometro / Calibrator thermometer</option>
+                                            <option value= "3.12 - Regla de Acero">3.12 - Regla de Acero</option>
+                                            <option value= "4.01 - Termometro / Thermometer">4.01 - Termometro / Thermometer</option>
+                                            <option value= "4.02 - Indicador digital / Drop indicator">4.02 - Indicador digital / Drop indicator</option>
+                                            <option value= "4.03 - Cronometro / Stopwatch">4.03 - Cronometro / Stopwatch</option>
+                                            <option value= "4.04 - Medidor de brillo / Gloss meter">4.04 - Medidor de brillo / Gloss meter</option>
+                                            <option value= "4.05 - Video gage">4.05 - Video gage</option>
+                                            <option value= "4.06 - Durometro / Durometer">4.06 - Durometro / Durometer</option>
+                                            <option value= "4.07 - Celda de carga / Load cell">4.07 - Celda de carga / Load cell</option>
+                                            <option value= "4.08 - Testing machine INSTRON">4.08 - Testing machine INSTRON</option>
+                                            <option value= "4.09 - MDR 2000 Rheometer">4.09 - MDR 2000 Rheometer</option>
+                                            <option value= "4.10 - MV 2000 Mooney">4.10 - MV 2000 Mooney</option>
+                                            <option value= "4.11 - Microscopio / Miscroscope">4.11 - Microscopio / Miscroscope</option>
+                                            <option value= "4.12 - Bascula / Weigh Scale">4.12 - Bascula / Weigh Scale</option>
+                                            <option value= "4.13 - Crockmeter">4.13 - Crockmeter</option>
+                                            <option value= "4.14 - Bytewise standard">4.14 - Bytewise standard</option>
+                                            <option value= "4.15 - Jalador / Puller">4.15 - Jalador / Puller</option>
+                                            <option value= "4.16 - Comparador Optico / Optical comparator 10X">4.16 - Comparador Optico / Optical comparator 10X</option>
+                                            <option value= "4.17 - Bomba peristaltica / Peristaltic Pump">4.17 - Bomba peristaltica / Peristaltic Pump</option>
+                                            <option value= "4.18 - Copa Zhan / Zhan Cup">4.18 - Copa Zhan / Zhan Cup</option>
+                                            <option value= "4.20 - Navaja Insercion/Extraccion">4.20 - Navaja Insercion/Extraccion</option>
+                                            <option value= "4.21 - Sistema de Medicion">4.21 - Sistema de Medicion</option>
+                                            <option value= "4.22 - Torquimetro / Torque Screwdriver">4.22 - Torquimetro / Torque Screwdriver</option>
+                                            <option value= "4.23 - Comparador Digital">4.23 - Comparador Digital</option>
+                                            <option value= "4.23 - Pesa Pull">4.23 - Pesa Pull</option>
+                                            <option value= "4.25 - Copa DIN/ DIN cup">4.25 - Copa DIN/ DIN cup</option>
+                                            <option value= "5.01 - Controlador de Temperatura">5.01 - Controlador de Temperatura</option>
+                                            <option value= "5.02 - Instrumento de Extrusion">5.02 - Instrumento de Extrusion</option>
+                                    </select>
+                </div>
+                
+                
+            </div>
+            <div class="info">
+                <div class="divLabel">Marca<br><input class="inputInfo" type="text" id="marca" name="marca" style="max-width: 220px;" required></div>
+                <div class="divLabel">Fecha de Calibración<br><input class="inputInfo" type="date" id="fecha_cal" name="fecha_cal" required></div>
+                <div class="divLabel">Registro<br><input class="inputInfo" type="text" id="reg" name="reg" style="max-width: 220px;"></div>
+                
+            </div>
+            <div class="info">
+                <div class="divLabel">Estatus<br>
+                    <select class="inputInfo"  name="estatus" id="estatus" required>
+                                            <option value="">...</option>
+                                            <option value="-Activo">-Activo</option>
+                                            <option value="-Activo / Falta de documentos">-Activo / Falta de documentos</option>
+                                            <option value="-No Activo / Baja">-No Activo / Baja</option>
+                                            <option value="-Extraviado">-Extraviado</option>
+                                            <option value="-Bloqueado">-Bloqueado</option>
+                                            <option value="Activo">Activo</option>
+                                            <option value="Activo / Falta de documentos">Activo / Falta de documentos</option>
+                                            <option value="No Activo / Baja">No Activo / Baja</option>
+                                    </select>
+                </div>
+                <div class="divLabel">Motivo<br><input class="inputInfo" type="text" id="motivo" name="motivo" required></div>
+            </div>
+        </div>
+    <div class="divTitulo"><div>Captura de Imagen</div>
+        <div class="info" style="padding: 2px;">
+            <input type="button" class="InputInfo" value="Ver Imagen" id="boton-play" style="background-color: blueviolet;margin: 2px;">
+            <input type="button" class="InputInfo" value="Cancelar" id="boton-cancelar-play" style="background-color: blueviolet;margin: 2px;">
+        </div>
+        <div class="info">
+            <select class="InputInfo" name="seleccionarDispositivo" id="seleccionarDispositivo"  style="width: 100%;"></select>
+        </div>
+        <div class="info">
+            <video id="video" style="height: 2px;"></video><canvas id="canvas" class="canvas"></canvas>
+        </div>
+        <div class="info" style="padding: 2px;">
+            <input class="InputInfo"  type="button" id="boton-pause" value="Tomar Captura" style="background-color: blueviolet;margin: 2px;">
+            <input class="InputInfo" type="button" id="boton-cancelar-pause" value="Cancelar" style="background-color: blueviolet;margin: 2px;">
+        </div>
+        <div class="info">
+            <input class="InputInfo" type="text" id="idGage1" name="archivo_imagen" style="font-size: 25px;" readonly>
+            <input class="InputInfo" type="button" id="boton-guardar" value="Guardar Imagen" style="background-color: blueviolet;margin: 2px;">
+        </div>
+        <div class="info">
+            <textarea class="InputInfo" name="archivo_link" id="linkGG" readonly></textarea>
+      
+        </div>
+    </div>
+    <div class="divTitulo">
+        <div class="info">
+            <input class="InputInfo" name="boton_completado" id="boton_completado" type="submit" value="Registrar" style="height: 52px;font-size: 25pt;background-color: blueviolet;margin: 2px;">
+        </div>
+        <div><input class="botonEstandar" name="boton_buscar" id="boton_buscar" type="button" value="Buscar" style="display:none;" ></div>
+    </div>
+
+    </div>
+</form>
+
+
+
+
+    
+    <script>
+
+
+     function buscarID(idG){
+        //console.log(Dattos.length);
+        let pos=Dattos.length+2;
+        for (let i = 0; i < Dattos.length; i++) {
+            if(idG==Dattos[i].gage_id){
+                pos=i+2;  
+            }
+            else{
+            }
+        }
+        return pos;
+     }
+    /*document.getElementById("boton_buscar").addEventListener("click",function(e){
+        let reg=document.getElementById("reg")
+        let idd=document.getElementById("idGage");
+        reg.value=buscarID(idd.value);
+    })*/
+
+    document.getElementById("id_gage").addEventListener("change",function(e){
+        console.log("idCambiado");
+        document.getElementById("linkGG").value="";
+        //document.getElementById("linkA").innerHTML="";
+    });
+
+        const scriptURL='https://script.google.com/macros/s/AKfycbwd30bMJq0UYAuQ2dE1FeBrxvqG6AT14aW-q-ktaUKT4vahuaxSlQhHKyE9Swy62Okxew/exec'
+        const form=document.forms['enviar_form']
+        form.addEventListener('submit',e=>{
+            let reg=document.getElementById("reg");
+            let idd=document.getElementById("id_gage");
+            reg.value=buscarID(idd.value);
+            console.log(reg.value);
+            e.preventDefault()
+                fetch(scriptURL,{method:'POST',body: new FormData(form)})
+                .then(response=>response.text())
+                .then(data=>{alert(data),window.location.reload();})
+                .catch(error=>console.log("error!",error.message))
+
+
+        })
+     
+
+
+        function IdShowV2(id){
+            for (let i = 0; i < Dattos.length; i++) {
+                    let idd=document.getElementById("id_gage");
+                    let descc=document.getElementById("descripcion");
+                    let tipoo=document.getElementById("tipo");
+                    let locc=document.getElementById("localizacion");
+                    let marcaa=document.getElementById("marca");
+                    let estatuss=document.getElementById("estatus");
+                    let motivoo=document.getElementById("motivo");
+                    let xX=document.getElementById("cord_x");
+                    let yY=document.getElementById("cord_y");
+                    let linkG=document.getElementById('linkGG');
+                    //var linkA=document.getElementById('linkA');
+                    var ARC=document.getElementById('idGage1');
+
+                    if(Dattos[i].gage_id==id){
+                        idd.value=Dattos[i].gage_id;
+                        descc.value=Dattos[i].descripcion;
+                        tipoo.value=Dattos[i].tipo;
+                        locc.value=Dattos[i].localizacion;
+                        marcaa.value=Dattos[i].marca;
+                        estatuss.value=Dattos[i].estatus;
+                        motivoo.value=Dattos[i].motivo;    
+                        xX.value=Dattos[i].UbicacionX;
+                        yY.value=Dattos[i].UbicacionY;
+                        linkG.value=Dattos[i].link;  
+                        ARC.value=Dattos[i].ruta    
+                    }
+
+                    
+            }
+        }
+
+
+
+
+        function IdShow(id){
+           // console.log(Dattos);
+            
+            for (let i = 0; i < Dattos.length; i++) {
+                    let idd=document.getElementById("id_gage");
+                    let descc=document.getElementById("descripcion");
+                    let tipoo=document.getElementById("tipo");
+                    let locc=document.getElementById("localizacion");
+                    let marcaa=document.getElementById("marca");
+                    let estatuss=document.getElementById("estatus");
+                    let motivoo=document.getElementById("motivo");
+                    let xX=document.getElementById("cord_x");
+                    let yY=document.getElementById("cord_y");
+                    let fechaa=document.getElementById("fecha_cal");
+
+
+
+                    if(Dattos[i].gage_id==id.textContent){
+                        idd.value=Dattos[i].gage_id;
+                        descc.value=Dattos[i].descripcion;
+                        tipoo.value=Dattos[i].tipo;
+                        locc.value=Dattos[i].localizacion;
+                        marcaa.value=Dattos[i].marca;
+                        estatuss.value=Dattos[i].estatus;
+                        motivoo.value=Dattos[i].motivo;    
+                        xX.value=Dattos[i].UbicacionX;
+                        yY.value=Dattos[i].UbicacionY;
+                        let fechaV2=Dattos[i].fecha_cal.split("/");
+                        //console.log(fechaV2[2]+"-"+fechaV2[1]+"-"+fechaV2[0]);
+                        fechaa.value=fechaV2[2]+"-"+fechaV2[1]+"-"+fechaV2[0];
+                  
+
+
+                            var linkG=document.getElementById('linkGG');
+                           // var linkA=document.getElementById('linkA');
+                            var ARC=document.getElementById('idGage1');
+                       
+      
+                            linkG.value=Dattos[i].link;  
+                            ARC.value=Dattos[i].ruta     
+                            //linkA.href=Dattos[i].link; 
+                            //linkA.innerHTML=Dattos[i].link; 
+                        }
+                    }      
+                    
+        }
+
+
+
+if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((res) => console.log("service worker registrado"))
+            .catch((err) => console.log("service worker not registrado", err));
+        });
+      }
+        
+
+
+    </script>
+    <script src="scripts/datos.js"></script>
+    <script src="scripts/iconos_div.js"></script>
+    <script src="scripts/pop.js"></script>
+    <script src="scripts/Captura.js"></script>
+    <script src="scripts/map25.js"></script>
+    
+  
+  
+</body>
+</html>
