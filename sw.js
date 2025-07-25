@@ -2,23 +2,7 @@ const RegistroPWA2025 = "RegistroUbic2025@v3-cache";
 const assets = [
   "/registro2025/",
   "/registro2025/index.html",
-  "/registro2025/scripts/Captura.js",
-  "/registro2025/scripts/datos.js",
-  "/registro2025/scripts/leaflet.js",
-  "/registro2025/scripts/html5-qrcode.min.js",
-  "/registro2025/scripts/icons_div.js",
-  "/registro2025/scripts/leaflet-easy-button.js",
-  "/registro2025/scripts/leaflet-tag-filter-button.js",
-  "/registro2025/scripts/map25.js",
-  "/registro2025/scripts/pop.js",
-  "/registro2025/scripts/leaflet/leaflet-src.esm.js",	
-  "/registro2025/scripts/leaflet/leaflet-src.esm.js.map",
-  "/registro2025/scripts/leaflet/leaflet-src.js",
-  "/registro2025/scripts/leaflet/leaflet-src.js.map",
-  "/registro2025/scripts/leaflet/leaflet.js",
-  "/registro2025/scripts/leaflet/leaflet.js.map",
-  "/registro2025/scripts/leaflet/leaflet.css",
-  "/registro2025/scripts/search/leaflet-search.js",
+  "/registro2025/scripts/leaflet/leaflet.css", 
   "/registro2025/scripts/search/leaflet-search.css",
   "/registro2025/styles/leaflet-easy-button.css",
   "/registro2025/styles/leaflet-tag-filter-button.css",
@@ -33,7 +17,6 @@ const assets = [
   "/registro2025/styles/imagenes/qr.jpg",
   "/registro2025/styles/imagenes/registro.png",
   "/registro2025/styles/imagenes/search-icon.png",
- 
 ];
 
 self.addEventListener("install", (installEvent) => {
