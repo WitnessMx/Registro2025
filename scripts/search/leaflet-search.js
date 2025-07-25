@@ -394,6 +394,9 @@
             this._input.focus()
             this._hideTooltip()
             this._handleSubmit()
+            var search1 =document.querySelector('input[class="search-input"]');
+            let ico=document.querySelector('div[title='+search1.value+']')//<<<<<<<<<<------------------------
+            ico.click()
           }, this)
       }
 
