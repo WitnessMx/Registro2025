@@ -12,7 +12,7 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
      */
     //console.log(devices);
         if (devices && devices.length) {
-            var cameraId = devices[0].id;
+            var cameraId = devices[1].id;//device 0 en pc y 1 en cel por camara trasera
             // .. use this to start scanning.
               //  const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
                 html5QrCode.start(
