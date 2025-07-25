@@ -1,4 +1,4 @@
-const RegistroPWA = "RegistroUbic2025@v3-cache";
+const RegistroPWA2025 = "RegistroUbic2025@v3-cache";
 const assets = [
   "/registro2025/",
   "/registro2025/index.html",
@@ -38,7 +38,7 @@ const assets = [
 
 self.addEventListener("install", (installEvent) => {
   installEvent.waitUntil(
-    caches.open(RegistroPWA).then((cache) => {
+    caches.open(RegistroPWA2025).then((cache) => {
       return cache.addAll(assets);
     })
   );
@@ -49,7 +49,7 @@ self.addEventListener("activate", (e) => {
     caches.keys().then((cacheList) => {
       return Promise.all(
         cacheList.map((cache) => {
-          if (!RegistroPWA.includes(cache)) {
+          if (!RegistroPWA2025.includes(cache)) {
             return caches.delete(cache);
           }
         })
