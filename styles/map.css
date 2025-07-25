@@ -1,7 +1,7 @@
 .contenedor_2025{
             background-color: rebeccapurple;
             display: flex;
-            align-items: center;
+            /*align-items: center;*/
             justify-content: center;
             flex-direction: column;
         }
@@ -9,14 +9,14 @@
             border-style: solid;
             border-radius: 9px;
             width: 80%;
-            min-width: 552px;
+            min-width: 484px;
             height: 800px;
             background-color: brown;
             margin-top: 7px;
         }
        .divTitulo{
             width: 79.5%;
-            min-width: 552px;
+            min-width: 474px;
             margin-top: 7px;
             border-style: solid;
             border-radius: 9px;
@@ -32,7 +32,7 @@
         }
         .divBuscar{
             width: 77.5%;
-            min-width: 552px;
+            min-width: 475px;
             margin-top: 7px;
             border-style: solid;
             border-radius: 9px;
@@ -43,7 +43,7 @@
             text-align: center;
             padding: 5px;
             background-color: pink;
-
+          
            
         }
 
@@ -52,7 +52,7 @@
             border-style: solid;
             border-radius: 9px;
             width: 99%;
-            min-width: 550px;
+            min-width: 467px;
             margin-top: 7px;
             background-color: rgb(209, 161, 255);
             justify-content: space-evenly;
@@ -132,7 +132,7 @@
     padding: 0 20px 0 2px;
     margin: 4px 13px 4px 4px;
     font-size: 29px;
-    width: 90%;
+    width: 86%;
     border: solid;
     background-color: rgb(226, 200, 250);
 }
