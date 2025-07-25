@@ -1,6 +1,6 @@
 L.NumberedDivIcon = L.Icon.extend({
     options:{
-        iconUrl:"/styles/imagenes/marcador2.png",
+        iconUrl:"registro2025/styles/imagenes/marcador2.png",
         number:'',
         status:'',
         shadowUrl:null,
