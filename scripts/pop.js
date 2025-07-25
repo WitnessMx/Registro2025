@@ -37,7 +37,11 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
                 cameraId, 
                 {
                     fps: 10,    // Optional, frame per seconds for qr code scanning
-                    qrbox: { width: 350, height: 350}  // Optional, if you want bounded box UI
+                    qrbox: { width: 350, height: 350}  , // Optional, if you want bounded box UI
+                    videoConstraints: {
+                    //facingMode: "environment", // usa la cámara trasera si es móvil
+                    advanced: [{ zoom: 10.0 }]  // solicita zoom 2x
+                }
                 },
                 (decodedText, decodedResult) => {
                     // do something when code is read
