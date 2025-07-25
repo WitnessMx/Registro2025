@@ -10,9 +10,11 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
      * devices would be an array of objects of type:
      * { id: "id", label: "label" }
      */
-    //console.log(devices);
         if (devices && devices.length) {
             var cameraId = devices[1].id;//device 0 en pc y 1 en cel por camara trasera
+            let id_cam=document.getElementById('id_camara');
+            id_cam.innerHTML=devices[1].label;
+            console.log(devices);
             // .. use this to start scanning.
               //  const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
                 html5QrCode.start(
