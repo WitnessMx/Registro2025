@@ -31,11 +31,12 @@ font-family: Arial, sans-serif;
 
     background: #fff;
 
-    padding: 20px;
+    padding: 9px;
 
     border-radius: 8px;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 92%;
 
 }
 
@@ -106,3 +107,6 @@ font-family: Arial, sans-serif;
     font-size: 16px;
 
 }
+ #qr-reader{
+    width: 432px;
+ }
