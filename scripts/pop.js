@@ -13,7 +13,9 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
        if (devices && devices.length) {
             var cameraId;
             let camaraLabel;
-            if(devices.length = 1){
+            cameraId = devices[1].id; 
+            camaraLabel = devices[1].label; 
+           /* if(devices.length = 1){
                cameraId = devices[0].id; 
                camaraLabel = devices[0].label; 
             }
@@ -26,7 +28,7 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
                     alert('camara no encontrada');
                 }
                 
-            }
+            }*/
             let id_cam=document.getElementById('id_camara');
             id_cam.innerHTML=devices.length +"<>" + camaraLabel;
             console.log(devices);
@@ -126,6 +128,12 @@ closePopup.addEventListener('click', closePopupFunc);
 
 popupOverlay.addEventListener('click', function (event) {
         if (event.target === popupOverlay) {
+          html5QrCode.stop().then((ignore) => {
+                    // QR Code scanning is stopped.
+                    }).catch((err) => {
+                        // Stop failed, handle it.
+                        console.log(err);
+                    });
             closePopupFunc();
         }
     });
