@@ -299,7 +299,7 @@
 if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
           navigator.serviceWorker
-            .register("/sw.js")
+            .register("registro2025/sw.js")
             .then((res) => console.log("service worker registrado"))
             .catch((err) => console.log("service worker not registrado", err));
         });
