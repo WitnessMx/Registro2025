@@ -13,7 +13,6 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
        if (devices && devices.length) {
             var cameraId;
             let camaraLabel;
-            alert(devices);
             if(devices.length>0 && devices.length<2){
                cameraId = devices[0].id; 
                camaraLabel = devices[0].label; 
