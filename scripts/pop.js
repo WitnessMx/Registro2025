@@ -39,7 +39,7 @@ const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
                     qrbox: { width: 350, height: 350}  , // Optional, if you want bounded box UI
                     videoConstraints: {
                     //facingMode: "environment", // usa la cámara trasera si es móvil
-                    advanced: [{ zoom: 10.0 }]  // solicita zoom 2x
+                    advanced: [{ zoom: 3.0 }]  // solicita zoom 2x
                 }
                 },
                 (decodedText, decodedResult) => {
