@@ -39,9 +39,9 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
                         
                     }, "1000");
                     
-                    let ico=document.querySelector('div[title='+search1.value+']')
-                    console.log(ico);
-                    ico.click();
+                   // let ico=document.querySelector('div[title='+search1.value+']')
+                    //console.log(ico);
+                    //ico.click();
                     IdShowV2(info[0]);
                     closePopupFunc();
                    
@@ -54,19 +54,16 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
                     });
                     
      
-                var stop=document.getElementById("closePopup");
-                stop.addEventListener("click",function(){
-                    html5QrCode.stop().then((ignore) => {
-                    // QR Code scanning is stopped.
-                    }).catch((err) => {
-                    // Stop failed, handle it.
-                    });
-                })
+               
 
    
     
 };
-const config = { fps: 10, qrbox: {  width: 350, height: 350} };
+const config = { fps: 10, qrbox: {  width: 350, height: 350},
+    videoConstraints: {
+     // usa la cámara trasera si es móvil
+    advanced: [{ zoom: 2.0}]  // solicita zoom 2x
+  }};
       
       // If you want to prefer back camera
       html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
@@ -100,5 +97,14 @@ popupOverlay.addEventListener('click', function (event) {
 function addZ(n){
     return n<10? '0'+n:''+n;
 }
+
+ var stop=document.getElementById("closePopup");
+                stop.addEventListener("click",function(){
+                    html5QrCode.stop().then((ignore) => {
+                    // QR Code scanning is stopped.
+                    }).catch((err) => {
+                    // Stop failed, handle it.
+                    });
+                })
 
 
