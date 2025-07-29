@@ -294,6 +294,52 @@
                     }      
                     
         }
+ function IdShow3(id){
+            
+            
+            for (let i = 0; i < Dattos.length; i++) {
+                    let idd=document.getElementById("id_gage");
+                    let descc=document.getElementById("descripcion");
+                    let tipoo=document.getElementById("tipo");
+                    let locc=document.getElementById("localizacion");
+                    let marcaa=document.getElementById("marca");
+                    let estatuss=document.getElementById("estatus");
+                    let motivoo=document.getElementById("motivo");
+                    let xX=document.getElementById("cord_x");
+                    let yY=document.getElementById("cord_y");
+                    let fechaa=document.getElementById("fecha_cal");
+
+
+
+                    if(Dattos[i].gage_id==id){
+                        idd.value=Dattos[i].gage_id;
+                        descc.value=Dattos[i].descripcion;
+                        tipoo.value=Dattos[i].tipo;
+                        locc.value=Dattos[i].localizacion;
+                        marcaa.value=Dattos[i].marca;
+                        estatuss.value=Dattos[i].estatus;
+                        motivoo.value=Dattos[i].motivo;    
+                        xX.value=Dattos[i].UbicacionX;
+                        yY.value=Dattos[i].UbicacionY;
+                        let fechaV2=Dattos[i].fecha_cal.split("/");
+                        //console.log(fechaV2[2]+"-"+fechaV2[1]+"-"+fechaV2[0]);
+                        fechaa.value=fechaV2[2]+"-"+fechaV2[1]+"-"+fechaV2[0];
+                  
+
+
+                            var linkG=document.getElementById('linkGG');
+                           // var linkA=document.getElementById('linkA');
+                            var ARC=document.getElementById('idGage1');
+                       
+      
+                            linkG.value=Dattos[i].link;  
+                            ARC.value=Dattos[i].ruta     
+                            //linkA.href=Dattos[i].link; 
+                            //linkA.innerHTML=Dattos[i].link; 
+                        }
+                    }      
+                    
+        }
 
 
 
