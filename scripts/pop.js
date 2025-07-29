@@ -61,7 +61,7 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
 };
 const config = { fps: 10, qrbox: {  width: 350, height: 350},
     videoConstraints: {
-     // usa la cámara trasera si es móvil
+    facingMode: "environment", // usa la cámara trasera si es móvil
     advanced: [{ zoom: 2.0}]  // solicita zoom 2x
   }};
       
